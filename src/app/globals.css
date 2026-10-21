@@ -1,0 +1,342 @@
+@layer theme, base, mui, components, utilities;
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --default-border-width: 0.0625rem;
+  --font-sans: var(--font-roboto), var(--font-noto-sans-kr), sans-serif;
+  --font-heading: var(--font-roboto), var(--font-noto-sans-kr), sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-brand-line4: var(--brand-line4);
+  --color-brand-line4-subtle: var(--brand-line4-subtle);
+  --color-brand-line4-muted: var(--brand-line4-muted);
+  --color-brand-on-line4-subtle: var(--brand-on-line4-subtle);
+  --color-brand-line4-text: var(--brand-line4-text);
+  --color-brand-on-line4: var(--brand-on-line4);
+  --color-primary-hover: var(--primary-hover);
+  --color-surface-low: var(--surface-low);
+  --color-muted-strong: var(--muted-strong);
+  --color-border-strong: var(--border-strong);
+  --color-disabled: var(--disabled);
+  --color-icon: var(--icon);
+  --color-danger-fg: var(--danger-fg);
+  --color-danger-subtle: var(--danger-subtle);
+  --color-on-danger-subtle: var(--on-danger-subtle);
+  --color-warning: var(--warning);
+  --color-warning-strong: var(--warning-strong);
+  --color-warning-subtle: var(--warning-subtle);
+  --color-on-warning-subtle: var(--on-warning-subtle);
+  --color-caution: var(--caution);
+  --color-caution-subtle: var(--caution-subtle);
+  --color-on-caution-subtle: var(--on-caution-subtle);
+  --color-success: var(--success);
+  --color-success-subtle: var(--success-subtle);
+  --color-success-strong: var(--success-strong);
+  --color-success-fg: var(--success-fg);
+  --color-warning-fg: var(--warning-fg);
+  --color-caution-fg: var(--caution-fg);
+  --color-chart-grid: var(--chart-grid);
+  --color-chart-baseline: var(--chart-baseline);
+  --color-on-success-subtle: var(--on-success-subtle);
+  --color-scrim: var(--scrim);
+  --color-dialog: var(--dialog);
+  --color-rail-bg: var(--rail-bg);
+  --color-rail-border: var(--rail-border);
+  --color-rail-active: var(--rail-active);
+  --color-rail-power: var(--rail-power);
+  --color-rail-hover: var(--rail-hover);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* Light mode Design Token 정의 */
+:root {
+  --brand-line4: #00a4e3;
+  --brand-line4-subtle: #e5f6fd;
+  --brand-line4-muted: #bfe9fa;
+  --brand-on-line4-subtle: #00587d;
+  --brand-line4-text: #0072a3;
+  --brand-on-line4: #fff;
+  --primary: #007cb3;
+  --primary-hover: #0072a3;
+  --bg: #f1f4f8;
+  --card: #fff;
+  --surface-low: #f7f9fb;
+  --muted: #eaeff4;
+  --muted-strong: #dce3ea;
+  --fg: #0b1f2e;
+  --muted-fg: #506579;
+  --border: #dce3ea;
+  --border-strong: #8b9aab;
+  --disabled: #b6c2ce;
+  --icon: #484a4b;
+  --danger: #d93036;
+  --danger-fg: #fff;
+  --danger-subtle: #fdecec;
+  --on-danger-subtle: #b42328;
+  --warning: #f76b15;
+  --warning-strong: #c24e00;
+  --warning-subtle: #ffeddf;
+  --on-warning-subtle: #a33a00;
+  --caution: #ffc53d;
+  --caution-subtle: #fff6d6;
+  --on-caution-subtle: #8c6a00;
+  --success: #30a46c;
+  --success-subtle: #ddf3e7;
+  --success-strong: #218358;
+  --success-fg: #fff;
+  --warning-fg: #fff;
+  --caution-fg: #3d2e00;
+  --on-primary: #fff;
+  --chart-1: #00a4e3;
+  --chart-2: #7b61ff;
+  --chart-grid: #eaeff4;
+  --chart-baseline: #dce3ea;
+  --on-success-subtle: #1a6b47;
+  --scrim: rgba(7, 21, 31, .88);
+  --dialog: #f1f4f8;
+  --shadow: 0 0.0625rem 0.125rem rgba(11, 31, 46, .06);
+  --rail-bg: #e3e9ef;
+  --rail-border: #c5c8c8;
+  --rail-active: #0052a4;
+  --rail-power: #e02033;
+  --rail-hover: rgba(11, 31, 46, .06);
+  --operator-logo-mark: #17298c;
+  --operator-logo-text: #6e7071;
+  --train-headlight-strong: #cc8100;
+  --train-headlight: #e1b500;
+  --train-headlight-fade: #f9ebb3;
+  --radius: 0.625rem;
+}
+
+/* Dark mode Design Token 정의 */
+.dark {
+  --brand-line4-subtle: #0b2f43;
+  --brand-line4-muted: #0e4461;
+  --brand-on-line4-subtle: #8fd8f5;
+  --brand-line4-text: #4fc2ee;
+  --primary-hover: #0093cc;
+  --bg: #07151f;
+  --card: #0b1f2e;
+  --surface-low: #0f2335;
+  --muted: #142a3d;
+  --muted-strong: #1b3349;
+  --fg: #f1f4f8;
+  --muted-fg: #9fb3c6;
+  --border: #264159;
+  --border-strong: #6a7d90;
+  --disabled: #3a4f63;
+  --icon: #9fb3c6;
+  --danger: #ec5d62;
+  --danger-fg: #2a0a0b;
+  --danger-subtle: #3b1416;
+  --on-danger-subtle: #ff9ea1;
+  --warning: #ff8a3d;
+  --warning-strong: #ff8a3d;
+  --warning-subtle: #3a1f0c;
+  --on-warning-subtle: #ffb27a;
+  --caution-subtle: #33290a;
+  --on-caution-subtle: #ffd567;
+  --success: #4cc38a;
+  --success-subtle: #0f2e20;
+  --success-strong: #4cc38a;
+  --success-fg: #06241a;
+  --warning-fg: #2a1405;
+  --chart-1: #0098d6;
+  --chart-2: #8c6cff;
+  --chart-grid: #142a3d;
+  --chart-baseline: #264159;
+  --on-success-subtle: #6fd7a3;
+  --scrim: rgba(2, 8, 13, .72);
+  --dialog: #142a3d;
+  --shadow: none;
+  --rail-bg: #0b1f2e;
+  --rail-border: #264159;
+  --rail-active: #007cb3;
+  --rail-power: #d93036;
+  --rail-hover: rgba(255, 255, 255, .06);
+  --operator-logo-mark: #f1f4f8;
+  --operator-logo-text: #f1f4f8;
+}
+
+/* shadcn 변수에 Design Token 연결 */
+:root,
+.dark {
+  --background: var(--bg);
+  --foreground: var(--fg);
+  --card-foreground: var(--fg);
+  --popover: var(--card);
+  --popover-foreground: var(--fg);
+  --primary-foreground: var(--on-primary);
+  --secondary: var(--brand-line4-subtle);
+  --secondary-foreground: var(--brand-on-line4-subtle);
+  --muted-foreground: var(--muted-fg);
+  --accent: var(--brand-line4-subtle);
+  --accent-foreground: var(--fg);
+  --destructive: var(--danger);
+  --input: var(--border);
+  --ring: var(--brand-line4);
+  --sidebar: var(--rail-bg);
+  --sidebar-foreground: var(--fg);
+  --sidebar-primary: var(--rail-active);
+  --sidebar-primary-foreground: var(--on-primary);
+  --sidebar-accent: var(--rail-hover);
+  --sidebar-accent-foreground: var(--fg);
+  --sidebar-border: var(--rail-border);
+  --sidebar-ring: var(--brand-line4);
+}
+
+/* Brand Color Bar의 Gradient 정의, 비율 Bar(brandGradient)와 Progress Bar에서 함께 사용 */
+:root,
+.dark {
+  --gradient-brand-line4: linear-gradient(90deg, color-mix(in srgb, var(--brand-line4) 70%, var(--card)), var(--brand-line4));
+}
+
+/* Animation Duration과 Easing 정의 */
+:root {
+  --motion-duration-fast: 100ms;
+  --motion-duration-base: 200ms;
+  --motion-duration-moderate: 300ms;
+  --motion-duration-slow: 500ms;
+  --motion-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --motion-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --motion-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Loading Skeleton 위로 빛이 왼쪽에서 오른쪽으로 지나가는 Animation을 1.2초 주기로 반복 */
+@theme {
+  --animate-skeleton-shimmer: skeleton-shimmer 1.2s linear infinite;
+
+  @keyframes skeleton-shimmer {
+    from {
+      background-position: 200% 0;
+    }
+
+    to {
+      background-position: -200% 0;
+    }
+  }
+}
+
+@utility timing-micro {
+  transition-duration: var(--motion-duration-fast);
+  transition-timing-function: var(--motion-ease-out);
+}
+
+@utility timing-default {
+  transition-duration: var(--motion-duration-base);
+  transition-timing-function: var(--motion-ease-out);
+}
+
+@utility timing-enter {
+  transition-duration: var(--motion-duration-moderate);
+  transition-timing-function: var(--motion-ease-out);
+}
+
+@utility timing-exit {
+  transition-duration: var(--motion-duration-base);
+  transition-timing-function: var(--motion-ease-in);
+}
+
+@utility timing-move {
+  transition-duration: var(--motion-duration-base);
+  transition-timing-function: var(--motion-ease-in-out);
+}
+
+/* 화면 확대의 기준 크기 지정, 이 크기일 때 기준 Font Size가 16px */
+:root {
+  --viewport-base-width: 1920;
+  --viewport-base-height: 1080;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  html {
+    font-size: max(100%,
+        min(calc(100vw * 16 / var(--viewport-base-width)),
+          calc(100vh * 16 / var(--viewport-base-height))));
+  }
+
+  /* Input을 제외한 화면 Text(Button, Segment, Chart 등)의 Drag 선택 차단 */
+  body {
+    @apply bg-background text-foreground antialiased select-none;
+  }
+
+  input,
+  textarea,
+  [contenteditable="true"] {
+    @apply select-text;
+  }
+
+  a:not([class]) {
+    color: var(--brand-line4-text);
+    text-decoration: none;
+  }
+
+  a:not([class]):hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+  }
+
+  /* 비활성화되지 않은 Button에 Pointer Cursor 적용 */
+  button:not(:disabled):not([aria-disabled="true"]),
+  [role="button"]:not([aria-disabled="true"]) {
+    cursor: pointer;
+  }
+}
+
+/* 확인 Dialog(ConfirmDialog layer="aboveSearch")를 검색 Overlay(z-60) 위, 장치 고장 Dialog(z-80) 아래에 배치, Overlay까지 함께 올리려고 portal 전체의 z-index 지정 */
+[data-base-ui-portal]:has(> [data-layer="above-search"]) {
+  position: relative;
+  z-index: 70;
+}
+
+/* Modal 뒤 Overlay에 shadcn 기본 색상과 Blur 대신 Design Token 색상 적용 */
+[data-slot="dialog-overlay"],
+[data-slot="alert-dialog-overlay"] {
+  background-color: var(--overlay-color, var(--scrim));
+  backdrop-filter: none;
+}
